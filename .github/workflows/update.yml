@@ -12,9 +12,6 @@ on:
         required: false
         default: 'false'
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   update-subscription:
     name: 拉取解密节点 & 更新订阅
@@ -36,21 +33,10 @@ jobs:
       - name: 🔓 执行解密 & 生成订阅文件
         run: node scripts/update.js
 
-      - name: 📝 检查文件是否有变化
-        id: diff
-        run: |
-          git diff --quiet Fan && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
-
       - name: 🚀 提交并推送更新
-        if: steps.diff.outputs.changed == 'true' || github.event.inputs.force == 'true'
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add Fan
-          git commit -m "🔄 自动同步 $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git commit --allow-empty -m "🔄 自动同步 $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
-
-      - name: ✅ 节点无变化，跳过提交
-        if: steps.diff.outputs.changed == 'false' && github.event.inputs.force != 'true'
-        run: echo "节点内容与上次相同，无需更新。"
-
