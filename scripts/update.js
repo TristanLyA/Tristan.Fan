@@ -3,7 +3,7 @@ const { webcrypto: crypto } = require('crypto');
 const { writeFileSync } = require('fs');
 const { join } = require('path');
 
-const OUTPUT_FILE = join(__dirname, '..', 'GitHub.Fan');
+const OUTPUT_FILE = join(__dirname, '..', 'Fan');
 
 const PRIVATE_KEY_PEM = `-----BEGIN PRIVATE KEY-----
 MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCUHMdMJFSzOnuO
