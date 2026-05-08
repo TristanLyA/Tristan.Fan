@@ -3,7 +3,7 @@ const { webcrypto: crypto } = require('crypto');
 const { writeFileSync } = require('fs');
 const { join } = require('path');
 
-const OUTPUT_FILE = join(__dirname, '..', 'Fan');
+const OUTPUT_FILE = join(__dirname, '..', 'GitHub.Fan');
 
 const PRIVATE_KEY_PEM = `-----BEGIN PRIVATE KEY-----
 MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCUHMdMJFSzOnuO
@@ -92,7 +92,7 @@ function generateClashYAML(config) {
 
   const nameList = nodes.map(n => `      - "${FLAG_MAP[n.flag] || '🌐'} ${n.name}"`).join('\n');
 
-  return `# FanVPN 自动订阅 | 节点数: ${nodes.length}
+  return `# Fan 自动订阅 | 节点数: ${nodes.length}
 # 配置版本: v${version} | 远程更新时间: ${updated}
 # 本地同步时间: ${now} UTC
 
