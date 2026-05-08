@@ -1,1 +1,181 @@
-aHR0cHM6Ly9mYW4uMzY1NzQ3Lnh5ejo0NDMjJUU3JUJFJThFJUU1JTlCJUJEJUMyJUI3MDEKaHR0cHM6Ly9mYW4uODkxMDU4Lnh5ejo0NDMjJUU3JUJFJThFJUU1JTlCJUJEJUMyJUI3JUU2JUI0JTlCJUU2JTlEJTg5JUU3JTlGJUI2MDElRUYlQkMlODglRTQlQjglODklRTclQkQlOTElRTQlQkMlOTglRTUlOEMlOTYlRUYlQkMlODkKaHR0cHM6Ly9mYW4uNTk2MTg5Lnh5ejo0NDMjJUU3JUJFJThFJUU1JTlCJUJEJUMyJUI3JUU2JUI0JTlCJUU2JTlEJTg5JUU3JTlGJUI2MDIlRUYlQkMlODglRTQlQjglODklRTclQkQlOTElRTQlQkMlOTglRTUlOEMlOTYlRUYlQkMlODkKaHR0cHM6Ly9mYW4uMjI2Mjc4Lnh5ejo0NDMjJUU3JUJFJThFJUU1JTlCJUJEJUMyJUI3JUU1JTlDJUEzJUU0JUJEJTk1JUU1JUExJTlFJUVGJUJDJTg4JUU0JUI4JTg5JUU3JUJEJTkxJUU0JUJDJTk4JUU1JThDJTk2JUVGJUJDJTg5Cmh0dHBzOi8vZmFuLjYwNzUyOC54eXo6ODQ0MyMlRTclQkUlOEUlRTUlOUIlQkQlQzIlQjclRTYlQjQlOUIlRTYlOUQlODklRTclOUYlQjYwMyVFRiVCQyU4OCVFNCVCOCU4OSVFNyVCRCU5MSVFNCVCQyU5OCVFNSU4QyU5NiVFRiVCQyU4OQpodHRwczovL2Zhbi43NDM0MjQueHl6OjQ0MyMlRTclQkUlOEUlRTUlOUIlQkQlQzIlQjdDTjIlMjBHSUEKaHR0cHM6Ly9mYW4uMzQ1MzQ1My54eXo6NDQzIyVFNyVCRSU4RSVFNSU5QiVCRCVFRiVCQyU4OCVFNCVCRSU5OCVFNSU4QyU5NiVFRiVCQyU4OQpodHRwczovL2Zhbi40NjcxMTUueHl6OjQ0MyMlRTclQkUlOEUlRTUlOUIlQkQlRUYlQkMlODglRTUlOEUlOUYlRTclOTQlOUYlQzIlQjclRTglQTclQTMlRTklOTQlODElRUYlQkMlODkKaHR0cHM6Ly9mYW4uMjQwMTA0Lnh5ejo0NDMjJUU5JUE2JTk5JUU2JUI4JUFGJUMyJUI3MDElRUYlQkMlODglRTclQTclQkIlRTUlOEElQTglRTQlQkMlOTglRTUlOEMlOTYlQzIlQjclRTglQTclQTMlRTklOTQlODElRUYlQkMlODkKaHR0cHM6Ly9mYW4yLjI0MDEwNC54eXo6NDQzIyVFOSVBNiU5OSVFNiVCOCVBRiVDMiVCNzAyJUVGJUJDJTg4JUU4JUE3JUEzJUU5JTk0JTgxJUVGJUJDJTg5Cmh0dHBzOi8vZmFuLjI2MzQ5MS54eXo6NDQzIyVFOSVBNiU5OSVFNiVCOCVBRiVDMiVCNzAzJUVGJUJDJTg4JUU3JUJEJTkxJUU5JUExJUI1JUU0JUI4JTkzJUU3JTk0JUE4JUVGJUJDJTg5Cmh0dHBzOi8vZmFuLjU4NzQ3NS54eXo6NDQzIyVFNiU5NyVBNSVFNiU5QyVBQyVDMiVCNzAxCmh0dHBzOi8vZmFuLjU3MTU4OS54eXo6NDQzIyVFNiU5NyVBNSVFNiU5QyVBQyVDMiVCNzAyJUVGJUJDJTg4JUU4JTgxJTk0JUU5JTgwJTlBJUU0JUJDJTk4JUU1JThDJTk2JUMyJUI3JUU4JUE3JUEzJUU5JTk0JTgxJUVGJUJDJTg5Cmh0dHBzOi8vZmFuLjM5OTc2My54eXo6NDQzIyVFNiU5NyVBNSVFNiU5QyVBQyVDMiVCNzAzJUVGJUJDJTg4JUU0JUJDJTk4JUU1JThDJTk2JUVGJUJDJTg5Cmh0dHBzOi8vZmFuLjU3MjYwOS54eXo6NDQzIyVFOSU5RiVBOSVFNSU5QiVCRCVDMiVCNzAxCmh0dHBzOi8vZmFuLjc2NDk2OS54eXo6NDQzIyVFNSU4RiVCMCVFNiVCOSVCRSVDMiVCN0hpbmV0JUVGJUJDJTg4JUU1JThFJTlGJUU3JTk0JTlGJUMyJUI3JUU4JUE3JUEzJUU5JTk0JTgxJUVGJUJDJTg5Cmh0dHBzOi8vZmFuLjk3MzUxMS54eXo6NDQzIyVFNSVCRSVCNyVFNSU5QiVCRCVDMiVCNzAxCmh0dHBzOi8vZmFuLjEzMjAzMS54eXo6NDQzIyVFNiVCMyU5NSVFNSU5QiVCRCVDMiVCNzAx
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090
+
+proxies:
+  # ============ 美国节点 ============
+  - name: "美国·01"
+    type: http
+    server: fan.365747.xyz
+    port: 443
+    tls: true
+
+  - name: "美国·洛杉矶01（三网优化）"
+    type: http
+    server: fan.891058.xyz
+    port: 443
+    tls: true
+
+  - name: "美国·洛杉矶02（三网优化）"
+    type: http
+    server: fan.596189.xyz
+    port: 443
+    tls: true
+
+  - name: "美国·圣何塞（三网优化）"
+    type: http
+    server: fan.226278.xyz
+    port: 443
+    tls: true
+
+  - name: "美国·洛杉矶03（三网优化）"
+    type: http
+    server: fan.607528.xyz
+    port: 8443
+    tls: true
+
+  - name: "美国·CN2 GIA"
+    type: http
+    server: fan.743424.xyz
+    port: 443
+    tls: true
+
+  - name: "美国（优化）"
+    type: http
+    server: fan.3453453.xyz
+    port: 443
+    tls: true
+
+  - name: "美国（原生·解锁）"
+    type: http
+    server: fan.467115.xyz
+    port: 443
+    tls: true
+
+  # ============ 香港节点 ============
+  - name: "香港·01（移动优化·解锁）"
+    type: http
+    server: fan.240104.xyz
+    port: 443
+    tls: true
+
+  - name: "香港·02（解锁）"
+    type: http
+    server: fan2.240104.xyz
+    port: 443
+    tls: true
+
+  - name: "香港·03（网页专用）"
+    type: http
+    server: fan.263491.xyz
+    port: 443
+    tls: true
+
+  # ============ 日本节点 ============
+  - name: "日本·01"
+    type: http
+    server: fan.587475.xyz
+    port: 443
+    tls: true
+
+  - name: "日本·02（联通优化·解锁）"
+    type: http
+    server: fan.571589.xyz
+    port: 443
+    tls: true
+
+  - name: "日本·03（优化）"
+    type: http
+    server: fan.399763.xyz
+    port: 443
+    tls: true
+
+  # ============ 韩国节点 ============
+  - name: "韩国·01"
+    type: http
+    server: fan.572609.xyz
+    port: 443
+    tls: true
+
+  # ============ 台湾节点 ============
+  - name: "台湾·Hinet（原生·解锁）"
+    type: http
+    server: fan.764969.xyz
+    port: 443
+    tls: true
+
+  # ============ 欧洲节点 ============
+  - name: "德国·01"
+    type: http
+    server: fan.973511.xyz
+    port: 443
+    tls: true
+
+  - name: "法国·01"
+    type: http
+    server: fan.132031.xyz
+    port: 443
+    tls: true
+
+proxy-groups:
+  - name: "🚀 节点选择"
+    type: select
+    proxies:
+      - "♻️ 自动选择"
+      - "美国·01"
+      - "美国·洛杉矶01（三网优化）"
+      - "美国·洛杉矶02（三网优化）"
+      - "美国·圣何塞（三网优化）"
+      - "美国·洛杉矶03（三网优化）"
+      - "美国·CN2 GIA"
+      - "美国（优化）"
+      - "美国（原生·解锁）"
+      - "香港·01（移动优化·解锁）"
+      - "香港·02（解锁）"
+      - "香港·03（网页专用）"
+      - "日本·01"
+      - "日本·02（联通优化·解锁）"
+      - "日本·03（优化）"
+      - "韩国·01"
+      - "台湾·Hinet（原生·解锁）"
+      - "德国·01"
+      - "法国·01"
+
+  - name: "♻️ 自动选择"
+    type: url-test
+    proxies:
+      - "美国·01"
+      - "美国·洛杉矶01（三网优化）"
+      - "美国·洛杉矶02（三网优化）"
+      - "美国·圣何塞（三网优化）"
+      - "美国·洛杉矶03（三网优化）"
+      - "美国·CN2 GIA"
+      - "美国（优化）"
+      - "美国（原生·解锁）"
+      - "香港·01（移动优化·解锁）"
+      - "香港·02（解锁）"
+      - "香港·03（网页专用）"
+      - "日本·01"
+      - "日本·02（联通优化·解锁）"
+      - "日本·03（优化）"
+      - "韩国·01"
+      - "台湾·Hinet（原生·解锁）"
+      - "德国·01"
+      - "法国·01"
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
+
+rules:
+  - DOMAIN-SUFFIX,cn,DIRECT
+  - DOMAIN-SUFFIX,baidu.com,DIRECT
+  - DOMAIN-SUFFIX,qq.com,DIRECT
+  - DOMAIN-SUFFIX,taobao.com,DIRECT
+  - DOMAIN-SUFFIX,jd.com,DIRECT
+  - DOMAIN-SUFFIX,alipay.com,DIRECT
+  - DOMAIN-SUFFIX,weibo.com,DIRECT
+  - DOMAIN-SUFFIX,bilibili.com,DIRECT
+  - DOMAIN-SUFFIX,zhihu.com,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,🚀 节点选择
