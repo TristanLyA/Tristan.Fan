@@ -95,7 +95,6 @@ function generateClashYAML(config) {
   return `# Fan 自动订阅 | 节点数: ${nodes.length}
 # 配置版本: v${version} | 远程更新时间: ${updated}
 # 本地同步时间: ${now} UTC
-# ⚠️ 此文件由 GitHub Actions 自动生成，请勿手动编辑
 
 mixed-port: 7890
 allow-lan: false
