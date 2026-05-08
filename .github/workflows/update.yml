@@ -1,4 +1,4 @@
-name: 🔄 自动更新 FanVPN 节点订阅
+name: 🔄 自动更新
 
 on:
   # 每 6 小时自动运行一次
@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       force:
-        description: '强制更新（即使内容未变化也提交）'
+        description: '强制更新'
         required: false
         default: 'false'
 
