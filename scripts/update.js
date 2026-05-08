@@ -46,13 +46,13 @@ const FLAG_MAP = {
 };
 
 function pemToBuffer(pem) {
-  const b64 = pem.replace(/-----[^-]+-----/g, '').replace(/\s/g, '');
-  return Buffer.from(b64, 'base64');
+  return Buffer.from(pem.replace(/-----[^-]+-----/g, '').replace(/\s/g, ''), 'base64');
 }
 function b64ToBuffer(b64) {
   return Buffer.from(b64, 'base64');
 }
 
+// ── 拉取并解密远程配置 ──────────────────────────────────────
 async function fetchAndDecrypt() {
   let envelope = null;
   for (const url of CONFIG_URLS) {
@@ -81,81 +81,45 @@ async function fetchAndDecrypt() {
   return JSON.parse(new TextDecoder().decode(decrypted));
 }
 
-function generateClashYAML(config) {
-  const { nodes, version, updated } = config;
-  const now = new Date().toISOString().replace('T', ' ').slice(0, 19);
-
-  const proxyLines = nodes.map(n => {
-    const emoji = FLAG_MAP[n.flag] || '🌐';
-    return `  - name: "${emoji} ${n.name}"\n    type: http\n    server: ${n.server}\n    port: ${n.port}\n    tls: true`;
-  }).join('\n\n');
-
-  const nameList = nodes.map(n => `      - "${FLAG_MAP[n.flag] || '🌐'} ${n.name}"`).join('\n');
-
-  return `# Fan 自动订阅 | 节点数: ${nodes.length}
-# 配置版本: v${version} | 远程更新时间: ${updated}
-# 本地同步时间: ${now} UTC
-# ⚠️ 此文件由 GitHub Actions 自动生成，请勿手动编辑
-
-mixed-port: 7890
-allow-lan: false
-mode: rule
-log-level: info
-external-controller: 127.0.0.1:9090
-
-proxies:
-${proxyLines}
-
-proxy-groups:
-  - name: "🚀 节点选择"
-    type: select
-    proxies:
-      - "♻️ 自动选择"
-      - "🎯 直连"
-${nameList}
-
-  - name: "♻️ 自动选择"
-    type: url-test
-    proxies:
-${nameList}
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300
-    tolerance: 50
-
-  - name: "🎯 直连"
-    type: select
-    proxies:
-      - DIRECT
-
-rules:
-  - DOMAIN-SUFFIX,cn,DIRECT
-  - DOMAIN-SUFFIX,baidu.com,DIRECT
-  - DOMAIN-SUFFIX,qq.com,DIRECT
-  - DOMAIN-SUFFIX,taobao.com,DIRECT
-  - DOMAIN-SUFFIX,jd.com,DIRECT
-  - DOMAIN-SUFFIX,alipay.com,DIRECT
-  - DOMAIN-SUFFIX,weibo.com,DIRECT
-  - DOMAIN-SUFFIX,bilibili.com,DIRECT
-  - DOMAIN-SUFFIX,zhihu.com,DIRECT
-  - GEOIP,CN,DIRECT
-  - MATCH,🚀 节点选择
-`;
+// ── 转换单个节点为订阅 URI ──────────────────────────────────
+// 格式：https://BASE64(server:port)#emoji节点名
+// Base64 末尾 = 去掉（= 在 URL hostname 中非法）
+function nodeToURI(node) {
+  const b64host = Buffer.from(`${node.server}:${node.port}`)
+    .toString('base64')
+    .replace(/=+$/, '');
+  const emoji = FLAG_MAP[node.flag] || '🌐';
+  const label = encodeURIComponent(`${emoji} ${node.name}`);
+  return `https://${b64host}#${label}`;
 }
 
+// ── 主流程 ──────────────────────────────────────────────────
 async function main() {
   try {
     const config = await fetchAndDecrypt();
-    console.log(`📦 解密成功，版本 v${config.version}，共 ${config.nodes.length} 个节点`);
-    const yaml = generateClashYAML(config);
-    writeFileSync(OUTPUT_FILE, yaml, 'utf-8');
-    console.log(`💾 已写入: ${OUTPUT_FILE}`);
-    console.log('🎉 订阅文件更新完成！');
-    config.nodes.forEach((n, i) => {
-      const emoji = FLAG_MAP[n.flag] || '🌐';
-      console.log(`   ${String(i+1).padStart(2)}. ${emoji} ${n.name} → ${n.server}:${n.port}`);
+
+    // ① 输出原始节点信息（解密后的 JSON）
+    console.log('\n════════════════════════════════════════');
+    console.log('📋 原始节点信息（解密后）:');
+    console.log('════════════════════════════════════════');
+    console.log(JSON.stringify(config, null, 2));
+
+    // ② 转换并输出每行 URI 预览
+    const uris = config.nodes.map(nodeToURI);
+    console.log('\n════════════════════════════════════════');
+    console.log(`🔄 转换后订阅格式（共 ${uris.length} 条）:`);
+    console.log('════════════════════════════════════════');
+    uris.forEach((uri, i) => {
+      console.log(`第${String(i + 1).padStart(2)}行: ${uri}`);
     });
+
+    // ③ 写入 Fan 文件（明文，每行一个 URI）
+    writeFileSync(OUTPUT_FILE, uris.join('\n'), 'utf-8');
+    console.log(`\n💾 已写入 Fan 文件: ${OUTPUT_FILE}`);
+    console.log('🎉 完成！');
+
   } catch (e) {
-    console.error(`❌ 更新失败: ${e.message}`);
+    console.error(`❌ 失败: ${e.message}`);
     process.exit(1);
   }
 }
