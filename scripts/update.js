@@ -118,7 +118,7 @@ ${nameList}
     proxies:
 ${nameList}
     url: "http://www.gstatic.com/generate_204"
-    interval: 300
+    interval: 86400
     tolerance: 50
 
   - name: "🎯 直连"
